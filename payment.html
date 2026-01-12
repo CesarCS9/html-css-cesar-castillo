@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure checkout page to enter your shipping and payment details and complete your Rainy Days purchase.">
     <title>Rainy Days | Payment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     <link href="src/css/styles.css" rel="stylesheet">
-    <link href="coming-soon.html" rel="stylesheet">
-    <link href="product-details.html" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
     <header>
@@ -33,27 +31,130 @@
             <form action="#">
                 <fieldset>
                     <legend>Contact information</legend>
-                    <!-- inputs -->
+                    <input type="text" name="email" id="email" placeholder="Email*">
                 </fieldset>
 
                 <fieldset>
                     <legend>Shipping address</legend>
-                    <!-- inputs -->
+                    <input type="text" name="name" id="name" placeholder="Full Name *">
+                    <input type="text" name="address" id="address" placeholder="Address *">
+                    <input type="text" name="country" id="country" placeholder="Country *">
+                    <input type="text" name="region" id="region" placeholder="Region *">
+                    <input type="text" name="city" id="city" placeholder="City *">
+                    <div>
+                        <input type="text" name="phone" id="phone" placeholder="Phone Number *">
+                        <select name="country-code" id="country-code">
+                            <option value="+47">+47 (NO)</option>
+                            <option value="+34">+34 (ES)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+49">+49 (DE)</option>
+                            <option value="+33">+33 (FR)</option>
+                        </select>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Shipping method</legend>
-                    <!-- radios -->
+                    <div>
+                        <input type="radio" name="shipping-method-1" id="shipping-method-1">
+                        <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
+                        <span>FREE!</span>
+                    </div>
+                    <div>
+                        <input type="radio" name="shipping-method-2" id="shipping-method-2">
+                        <p>Priority: Ships in 1-2 business days with free returns</p>
+                        <span>120 Kr</span>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Payment method</legend>
-                    <!-- radios + inputs + CTA -->
+                    <div>
+                        <input type="radio" name="credit-card" id="credit-card">
+                        <p>Credit Card</p>
+                        <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
+                    </div>
+                    <div>
+                        <input type="radio" name="paypal" id="paypal">
+                        <p>PayPal</p>
+                        <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
+                    </div>
+                    <div>
+                        <input type="text" name="card-number" id="card-number" placeholder="Card Number *">
+                        <input type="text" name="expiration-date" id="expiration-date" placeholder="Expiration Date *">
+                        <input type="text" name="cvc" id="cvc" placeholder="CVC *">
+                    </div>
+                    <a href="confirmation.html">Pay Now</a>
+                    <div>
+                        <span>By placing this order you agree to RAINY DAYS</span>
+                        <a href="coming-soon.html">Terms & Conditions</a>
+                        <span>and</span>
+                        <a href="coming-soon.html">Privacy Policy</a>
+                    </div>
                 </fieldset>
             </form>
         </section>
-        <section></section>
+        <section>
+            <div>
+                <h1>Classic RD</h1>
+                <span>300 Kr</span>
+                <div>
+                    <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
+                    <span>Green</span>
+                    <span>M</span>
+                </div>
+                <div>
+                    <div>
+                        <button type="button" aria-label="Remove item">
+                                <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <span>1</span>
+                        <button type="button" aria-label="Add item">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                    <a href="cart.html">Edit Cart</a>
+                </div>
+            </div>
+            <div>
+                <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code">
+            <div>
+                <p>Order Summary</p>
+                <div>
+                    <p>Subtotal (1 item)</p>
+                    <p>300 Kr</p>
+                </div>
+                <div>
+                    <p>Estimated shipping</p>
+                    <p>100 Kr</p>
+                </div>
+                <div>
+                    <p>Free standard shipping (over 299 Kr)</p>
+                    <p>-100 Kr</p>
+                </div>
+                <div>
+                    <p>Tax</p>
+                    <p>0 Kr</p>
+                </div>
+                <div>
+                    <p>Total Order</p>
+                    <p>300 Kr</p>
+                </div>
+            </div>
+            </div>
+        </section>
     </main>
-    <footer></footer>    
+    <footer>
+        <img src="assets/images/icons/RainyDays_Logo WHITE.png" alt="">
+        <div>
+            <div>
+                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+            </div>
+            <span>#Pushingtheconfortzone</span>
+        </div>
+    </footer>    
 </body>
 </html>
