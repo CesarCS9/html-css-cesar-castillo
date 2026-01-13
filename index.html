@@ -14,15 +14,17 @@
 <body>
     <header>
         <nav class="main-nav">
-            <div class="nav-left">
-                <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
-            </div>
-            <a href="index.html">
-                <img src="assets/images/icons/RainyDays_Logo WHITE.png" class="nav-logo" alt="Rainy Days logo">
-            </a>
-            <div class="nav-right">
-                <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-                <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+            <div class="nav-container">
+                <div class="nav-left">
+                    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                </div>
+                <a href="index.html">
+                    <img src="assets/images/icons/RainyDays_Logo WHITE.png" class="nav-logo" alt="Rainy Days logo">
+                </a>
+                <div class="nav-right">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+                </div>
             </div>
         </nav>
     </header>
@@ -38,7 +40,7 @@
                     <span>Design for every adventure.</span>
                 </h1>
                 <p class="hero-subtitle">Don´t let the rain stop you. Gear up with our rain-ready jackets, built for nature's worst.</p>
-            <a href="product-details.html" class="btn">SHOP NOW</a>
+            <a href="product-details.html" class="cta-home">SHOP NOW</a>
             </div>
         </section>
 
@@ -47,63 +49,77 @@
             <div>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
-                    <div>
+                    <div class="product-info">
                         <span>Classic RD</span>
-                        <span>300 Kr</span>
+                        <span class="product-price">300 Kr</span>
                     </div>
                 </a>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-2.jpg" alt="Denail RD grey rain jacket">
-                    <span>Denail RD</span>
-                    <span>700 Kr</span>
+                    <div class="product-info">
+                        <span>Denail RD</span>
+                        <span class="product-price">700 Kr</span>
+                    </div>
                 </a>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-3.jpg" alt="Performance grey-orange rain jacket">
-                    <span>Performance jacket</span>
-                    <span>1 200 Kr</span>
+                    <div class="product-info">
+                        <span>Performance jacket</span>
+                        <span class="product-price">1 200 Kr</span>
+                    </div>
                 </a>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-4.jpg" alt="Wind-waterproof resistant jacket">
-                    <span>Winde, water resistant</span>
-                    <span>500 Kr</span>
+                    <div class="product-info">
+                        <span>Winde, water resistant</span>
+                        <span class="product-price">500 Kr</span>
+                    </div>
                 </a>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-5.jpg" alt="lightweight thermic red jacket">
-                    <span>Lightweight, strech</span>
-                    <span>650 Kr</span>
+                    <div class="product-info">
+                        <span>Lightweight, strech</span>
+                        <span class="product-price">650 Kr</span>
+                    </div>
                 </a>
                 <a href="product-details.html">
                     <img src="assets/images/products/product-6.jpg" alt="Waterproof RD black jacket">
-                    <span>Waterproof RD</span>
-                    <span>1 100 Kr</span>
+                    <div class="product-info">
+                        <span>Waterproof RD</span>
+                        <span class="product-price">1 100 Kr</span>
+                    </div>
                 </a>
             </div>
         </section>
 
         <section class="models-showcase">
-            <h2>Built for adventure</h2>
+            <h3>Built for adventure</h3>
             <div>
-                <img src="assets/images/layout/model-1.jpg" alt="Male model wearing a green rain jacket with the hood up, standing in the rain">
-                <a href="coming-soon.html" class="cta-models">Gifts for him</a>
-                <img src="assets/images/layout/model-2.jpg" alt="Female model enjoying a hiking day on a mountain wearing a Rainy Days jacket">
-                <a href="coming-soon.html" class="cta-models">Gifts for her</a>
-                <img src="assets/images/layout/model-3.jpg" alt="Male model standing wearing a blue waterproof jaket">
-                <a href="coming-soon.html" class="cta-models">Sale</a>
+                <div>
+                    <img src="assets/images/layout/model-1.jpg" alt="Male model wearing a green rain jacket with the hood up, standing in the rain">
+                    <a href="coming-soon.html" class="cta-models">Gifts for him</a>
+                </div>
+                <div>
+                    <img src="assets/images/layout/model-2.jpg" alt="Female model enjoying a hiking day on a mountain wearing a Rainy Days jacket">
+                    <a href="coming-soon.html" class="cta-models">Gifts for her</a>
+                </div>
+                <div>
+                    <img src="assets/images/layout/model-3.jpg" alt="Male model standing wearing a blue waterproof jaket">
+                    <a href="coming-soon.html" class="cta-models">Sale</a>
+                </div>
             </div>
         </section>
 
-        <section>
-            <div>
+        <section class="slogan">
+            <div class="slogan-image">
                 <img src="assets/images/layout/hashtag.jpg" alt="Person standing in front of a massive waterfall in Iceland">
-            </div>
-            <div>
-                <p>#Pushingtheconfortzone</p>
+                <p class="slogan-text">#Pushingtheconfortzone</p>
             </div>
         </section>
     </main>
     <footer>
         <div>
-             <h3>Support</h3>
+             <h4>Support</h4>
              <ul>
                 <li><a href="coming-soon.html">Contact us</a></li>
                 <li><a href="coming-soon.html">Find a store</a></li>
@@ -118,10 +134,16 @@
 
         <div>
             <div>
-                <h3>Our social media</h3>
+                <h4>Our social media</h4>
+                    <div>
+                        <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+                    </div>
             </div>
             <div>
-                <h3>Join our email list</h3>
+                <h4>Join our email list</h4>
                 <form>
                     <div>
                         <input type="text" name="email" id="email" placeholder="Email Address*">

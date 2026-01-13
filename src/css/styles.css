@@ -32,6 +32,18 @@ nav {
 }
 
 .main-nav {
+  width: 100%;
+  background-color: #111111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-container{
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -101,6 +113,126 @@ nav {
 .hero-subtitle {
   max-width: 250px;
 }
+
+.cta-home{
+  text-decoration: none;
+  color: black;
+  background-color: #ffff;
+  font-weight: 600;
+  display: inline-block;
+  padding: 20px 25px;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.cta-home:hover{
+  color: #ffff;
+  background-color: #111111;
+  border-color: black;
+}
+
+/* PRODUCTS SECTION */
+.featured-products h2{
+  text-align: center;
+  margin: 3rem;
+}
+
+.featured-products > div{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 7rem;
+  padding: 0 4rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.featured-products a{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-products img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 20px;
+}
+
+.product-price {
+  font-weight: 700;
+}
+
+
+/* MODELS SECTION */
+.models-showcase h3{
+  text-align: center;
+  margin: 3rem;
+}
+
+.models-showcase > div{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.models-showcase > div >div{
+  position: relative;
+}
+
+.models-showcase img {
+  width: 100%;
+  display: block;
+}
+
+.cta-models{
+  position: absolute;
+  width: 85%;
+  bottom: 0.5rem;
+  left: 50%;
+  text-decoration: none;
+  color: black;
+  background-color: #ffff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 50px;
+  
+}
+
+/* Hashtag*/
+.slogan-image{
+  position: relative;
+  margin-top: 50px;
+}
+
+.slogan-image img{
+  width: 100%;
+  display: block;
+}
+
+.slogan-text{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 4rem;
+}
+
 
 
 /* FOOTER */
