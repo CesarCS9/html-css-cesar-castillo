@@ -30,64 +30,77 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h1>Cart</h1>
-            <p>Classic RD<p>
-            <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
-            <p>Green</p>
-            <p>M</p>
-            <p>300 Kr</p>
-            <div>
-                <button type="button" aria-label="Remove item">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            <span>1</span>
-                <button type="button" aria-label="Add item">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div>
-                <label for="ship-to-home">
-                    <input type="checkbox" name="ship-to-home" id="ship-to-home">
-                    <span>Ship to home (Ships in 2-5 business days)</span>
-                </label>
-                <label for="pick-up-store">
-                    <input type="checkbox" name="pick-up-store" id="pick-up-store">
-                    <span>Pick up in the store.</span>
-                    <a href="coming-soon.html">Select Store</a>
-                </label>
-            </div>
-        </section>
-        <section>
-            <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code">
-            <div>
-                <h2>Order Summary</h2>
-                <div>
-                    <p>Subtotal (1 item)</p>
-                    <p>300 Kr</p>
+        <h1 class="cart-header">Cart (1)</h1>
+        <div class="cart-layout">
+            <section>
+                <div class="cart-product">
+                    <div class="cart-product-header">
+                        <p>Classic RD</p>
+                        <p>300 Kr</p>
+                    </div>
+
+                    <div class="cart-product-main">
+                        <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
+
+                        <div class="cart-product-meta">
+                            <p>Green</p>
+                            <p>M</p>
+                        </div>
+                    </div>
+                    <div class="cart-quantity">
+                         <button type="button" aria-label="Remove item">
+                            <i class="fa-solid fa-trash" style="color: #616161"></i>
+                        </button>
+                        <span>1</span>
+                        <button type="button" aria-label="Add item">
+                            <i class="fa-solid fa-plus" style="color: #616161"></i>
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <p>Estimated shipping</p>
-                    <p>100 Kr</p>
+
+                <div class="cart-shipping">
+                    <label for="ship-to-home" class="shipping-option">
+                        <input type="checkbox" name="ship-to-home" id="ship-to-home">
+                        <span>Ship to home (Ships in 2-5 business days)</span>
+                    </label>
+                    <label for="pick-up-store" class="shipping-option">
+                        <input type="checkbox" name="pick-up-store" id="pick-up-store">
+                        <span>Pick up in the store.</span>
+                        <a href="coming-soon.html">Select Store</a>
+                    </label>
                 </div>
-                <div>
-                    <p>Free standard shipping (over 299 Kr)</p>
-                    <p>-100 Kr</p>
+            </section>
+            <section class="order-section">
+                <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code" class="promo-input">
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-row">
+                        <p>Subtotal (1 item)</p>
+                        <p>300 Kr</p>
+                    </div>
+                    <div class="order-row">
+                        <p>Estimated shipping</p>
+                        <p>100 Kr</p>
+                    </div>
+                    <div class="order-row">
+                        <p>Free standard shipping (over 299 Kr)</p>
+                        <p>-100 Kr</p>
+                    </div>
+                    <div class="order-row">
+                        <p>Tax</p>
+                        <p>0 Kr</p>
+                    </div>
+                    <div class="order-row-total order-row">
+                        <p>Total Order</p>
+                        <p>300 Kr</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Tax</p>
-                    <p>0 Kr</p>
+                <div class="order-actions">
+                    <button class="paypal-btn">Pay with PayPal</button>
+                    <a href="payment.html" class="checkout-btn">CHECKOUT</a>
                 </div>
-                <div>
-                    <p>Total Order</p>
-                    <p>300 Kr</p>
-                </div>
-            </div>
-            <div>
-                <button>Pay with PayPal</button>
-                <a href="payment.html">CHECKOUT</a>
-            </div>
-        </section>
+            </section>
+        </div>
         <section class="slogan">
             <div class="slogan-image">
                 <img src="assets/images/layout/hashtag.jpg" alt="Person standing in front of a massive waterfall in Iceland">

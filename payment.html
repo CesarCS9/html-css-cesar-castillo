@@ -29,133 +29,143 @@
         </nav>
     </header>
     <main>
-        <section>
-            <form action="#">
-                <fieldset>
-                    <legend>Contact information</legend>
-                    <input type="text" name="email" id="email" placeholder="Email*">
-                </fieldset>
+        <div class="payment-layout">
+            <section>
+                <form action="#">
+                    <fieldset>
+                        <legend>Contact information</legend>
+                        <input type="text" name="email" id="email" placeholder="Email*">
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Shipping address</legend>
-                    <input type="text" name="name" id="name" placeholder="Full Name *">
-                    <input type="text" name="address" id="address" placeholder="Address *">
-                    <input type="text" name="country" id="country" placeholder="Country *">
-                    <input type="text" name="region" id="region" placeholder="Region *">
-                    <input type="text" name="city" id="city" placeholder="City *">
-                    <div>
-                        <input type="text" name="phone" id="phone" placeholder="Phone Number *">
-                        <select name="country-code" id="country-code">
-                            <option value="+47">+47 (NO)</option>
-                            <option value="+34">+34 (ES)</option>
-                            <option value="+44">+44 (UK)</option>
-                            <option value="+49">+49 (DE)</option>
-                            <option value="+33">+33 (FR)</option>
-                        </select>
-                    </div>
-                </fieldset>
+                    <fieldset>
+                        <legend>Shipping address</legend>
+                        <input type="text" name="name" id="name" placeholder="Full Name *">
+                        <input type="text" name="address" id="address" placeholder="Address *">
+                        <div class="three-columns">
+                            <input type="text" name="country" id="country" placeholder="Country *">
+                            <input type="text" name="region" id="region" placeholder="Region *">
+                            <input type="text" name="city" id="city" placeholder="City *">
+                        </div>
+                        <div>
+                            <div class="phone-code">
+                                <input type="text" name="phone" id="phone" placeholder="Phone Number *">
+                                <select name="country-code" id="country-code">
+                                    <option value="+47">+47 (NO)</option>
+                                    <option value="+34">+34 (ES)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+49">+49 (DE)</option>
+                                    <option value="+33">+33 (FR)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Shipping method</legend>
-                    <div>
-                        <input type="radio" name="shipping-method-1" id="shipping-method-1">
-                        <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
-                        <span>FREE!</span>
-                    </div>
-                    <div>
-                        <input type="radio" name="shipping-method-2" id="shipping-method-2">
-                        <p>Priority: Ships in 1-2 business days with free returns</p>
-                        <span>120 Kr</span>
-                    </div>
-                </fieldset>
+                    <fieldset class="shipping-method">
+                        <legend>Shipping method</legend>
+                        <div>
+                            <input type="radio" name="shipping-method-1" id="shipping-method-1">
+                            <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
+                            <span>FREE!</span>
+                        </div>
+                        <div>
+                            <input type="radio" name="shipping-method-2" id="shipping-method-2">
+                            <p>Priority: Ships in 1-2 business days with free returns</p>
+                            <span>120 Kr</span>
+                        </div>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Payment method</legend>
+                    <fieldset class="payment-method">
+                        <legend>Payment method</legend>
+                        <div>
+                            <input type="radio" name="credit-card" id="credit-card">
+                            <p>Credit Card</p>
+                            <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
+                        </div>
+                        <div>
+                            <input type="radio" name="paypal" id="paypal">
+                            <p>PayPal</p>
+                            <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
+                        </div>
+                        <div class="card-inputs">
+                            <input type="text" name="card-number" id="card-number" placeholder="Card Number *">
+                            <div class="card-row">
+                                <input type="text" name="expiration-date" id="expiration-date" placeholder="Expiration Date *">
+                                <input type="text" name="cvc" id="cvc" placeholder="CVC *">
+                            </div>
+                        </div>
+                        <a href="confirmation.html" class="cta-paynow">Pay Now</a>
+                        <div class="legal-text">
+                            <p>By placing this order you agree to RAINY DAYS</p>
+                            <a href="coming-soon.html">Terms & Conditions</a>
+                            <p>and</p>
+                            <a href="coming-soon.html">Privacy Policy</a>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="purchase-summary">
+                <div>
+                    <h1>Classic RD</h1>
+                    <span>300 Kr</span>
                     <div>
-                        <input type="radio" name="credit-card" id="credit-card">
-                        <p>Credit Card</p>
-                        <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
+                        <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
+                        <span>Green</span>
+                        <span>M</span>
                     </div>
                     <div>
-                        <input type="radio" name="paypal" id="paypal">
-                        <p>PayPal</p>
-                        <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
+                        <div>
+                            <button type="button" aria-label="Remove item">
+                                    <i class="fa-solid fa-trash"></i>
+                            </button>
+                            <span>1</span>
+                            <button type="button" aria-label="Add item">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <a href="cart.html">Edit Cart</a>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code">
+                <div>
+                    <h2>Order Summary</h2>
+                    <div>
+                        <p>Subtotal (1 item)</p>
+                        <p>300 Kr</p>
                     </div>
                     <div>
-                        <input type="text" name="card-number" id="card-number" placeholder="Card Number *">
-                        <input type="text" name="expiration-date" id="expiration-date" placeholder="Expiration Date *">
-                        <input type="text" name="cvc" id="cvc" placeholder="CVC *">
+                        <p>Estimated shipping</p>
+                        <p>100 Kr</p>
                     </div>
-                    <a href="confirmation.html">Pay Now</a>
                     <div>
-                        <span>By placing this order you agree to RAINY DAYS</span>
-                        <a href="coming-soon.html">Terms & Conditions</a>
-                        <span>and</span>
-                        <a href="coming-soon.html">Privacy Policy</a>
+                        <p>Free standard shipping (over 299 Kr)</p>
+                        <p>-100 Kr</p>
                     </div>
-                </fieldset>
-            </form>
-        </section>
-        <section>
-            <div>
-                <h1>Classic RD</h1>
-                <span>300 Kr</span>
-                <div>
-                    <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
-                    <span>Green</span>
-                    <span>M</span>
-                </div>
-                <div>
                     <div>
-                        <button type="button" aria-label="Remove item">
-                                <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <span>1</span>
-                        <button type="button" aria-label="Add item">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
+                        <p>Tax</p>
+                        <p>0 Kr</p>
                     </div>
-                    <a href="cart.html">Edit Cart</a>
+                    <div>
+                        <p>Total Order</p>
+                        <p>300 Kr</p>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code">
-            <div>
-                <h2>Order Summary</h2>
-                <div>
-                    <p>Subtotal (1 item)</p>
-                    <p>300 Kr</p>
                 </div>
-                <div>
-                    <p>Estimated shipping</p>
-                    <p>100 Kr</p>
-                </div>
-                <div>
-                    <p>Free standard shipping (over 299 Kr)</p>
-                    <p>-100 Kr</p>
-                </div>
-                <div>
-                    <p>Tax</p>
-                    <p>0 Kr</p>
-                </div>
-                <div>
-                    <p>Total Order</p>
-                    <p>300 Kr</p>
-                </div>
-            </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
     <footer>
-        <img src="assets/images/icons/RainyDays_Logo WHITE.png" alt="">
-        <div>
+        <div class="simple-footer">
+            <img src="assets/images/icons/RainyDays_Logo WHITE.png" alt="">
             <div>
-                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+                <div>
+                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                    <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                    <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                    <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+                </div>
+                <span>#Pushingtheconfortzone</span>
             </div>
-            <span>#Pushingtheconfortzone</span>
         </div>
     </footer>    
 </body>
