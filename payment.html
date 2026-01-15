@@ -16,14 +16,20 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <div class="nav-left">
-                    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                    <a href="coming-soon.html">
+                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                    </a>
                 </div>
                 <a href="index.html">
                     <img src="assets/images/icons/RainyDays_Logo WHITE.png" class="nav-logo" alt="Rainy Days logo">
                 </a>
                 <div class="nav-right">
-                    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-                    <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+                    <a href="coming-soon.html">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                    </a>
+                    <a href="cart.html">
+                        <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -62,29 +68,33 @@
 
                     <fieldset class="shipping-method">
                         <legend>Shipping method</legend>
-                        <div>
-                            <input type="radio" name="shipping-method-1" id="shipping-method-1">
-                            <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
-                            <span>FREE!</span>
-                        </div>
-                        <div>
-                            <input type="radio" name="shipping-method-2" id="shipping-method-2">
-                            <p>Priority: Ships in 1-2 business days with free returns</p>
-                            <span>120 Kr</span>
+                        <div class="shipping-type">
+                            <div class="shipping-option shipping-option-white">
+                                <input type="radio" name="shipping-method-1" id="shipping-method-1">
+                                <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
+                                <p>FREE!</p>
+                            </div>
+                            <div class="shipping-option shipping-option-white">
+                                <input type="radio" name="shipping-method-2" id="shipping-method-2">
+                                <p>Priority: Ships in 1-2 business days with free returns</p>
+                                <p>120 Kr</p>
+                            </div>
                         </div>
                     </fieldset>
 
                     <fieldset class="payment-method">
                         <legend>Payment method</legend>
-                        <div>
-                            <input type="radio" name="credit-card" id="credit-card">
-                            <p>Credit Card</p>
-                            <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
-                        </div>
-                        <div>
-                            <input type="radio" name="paypal" id="paypal">
-                            <p>PayPal</p>
-                            <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
+                        <div class="payment-type">
+                            <div class="payment-option">
+                                <input type="radio" name="credit-card" id="credit-card">
+                                <p>Credit Card</p>
+                                <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" name="paypal" id="paypal">
+                                <p>PayPal</p>
+                                <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
+                            </div>
                         </div>
                         <div class="card-inputs">
                             <input type="text" name="card-number" id="card-number" placeholder="Card Number *">
@@ -104,29 +114,36 @@
                 </form>
             </section>
             <section class="purchase-summary">
-                <div>
-                    <h1>Classic RD</h1>
-                    <span>300 Kr</span>
-                    <div>
-                        <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
-                        <span>Green</span>
-                        <span>M</span>
+                <div class="cart-product cart-product-2">
+                    <div class="cart-product-header">
+                        <p>Classic RD</p>
+                        <p>300 Kr</p>
                     </div>
-                    <div>
-                        <div>
+
+                    <div class="cart-product-main">
+                        <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
+
+                        <div class="cart-product-meta">
+                            <p>Green</p>
+                            <p>M</p>
+                        </div>
+                    </div>
+                    <div class="edit-cart">
+                        <div class="cart-quantity">
                             <button type="button" aria-label="Remove item">
-                                    <i class="fa-solid fa-trash"></i>
+                                <i class="fa-solid fa-trash" style="color: #616161"></i>
                             </button>
                             <span>1</span>
                             <button type="button" aria-label="Add item">
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-plus" style="color: #616161"></i>
                             </button>
                         </div>
-                        <a href="cart.html">Edit Cart</a>
+                        <a href="cart.html">Edit cart</a>
                     </div>
                 </div>
-                <div>
-                    <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code">
+                <div class="promo-box">
+                    <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code" class="promo-input">
+                </div>
                 <div>
                     <div class="order-summary">
                         <h2>Order Summary</h2>
@@ -158,8 +175,8 @@
     <footer>
         <div class="simple-footer">
             <img src="assets/images/icons/RainyDays_Logo WHITE.png" alt="">
-            <div>
-                <div>
+            <div class="footer-right">
+                <div class="footer-icons">
                     <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
                     <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
                     <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
