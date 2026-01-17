@@ -41,9 +41,9 @@ https://www.figma.com/proto/SdYSl3CzFm0yc1jdNQyU4c/RainyDays-Prototype?node-id=0
   - Readable font sizes  
   - Sufficient contrast  
 - Each page has:
-  - Unique "<title>"
-  - Unique "<meta name="description">"
-  - Unique "<h1>"
+  - Unique : title
+  - Unique : meta name="description
+  - Unique : h1
 
 
 ## Technical Decisions
