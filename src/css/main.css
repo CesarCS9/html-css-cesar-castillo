@@ -1,0 +1,254 @@
+/* Use import to split up your CSS into manageable chunks */
+@import url("./_reset.css");
+/* Files that are only needed to be imported are called partials */
+/* These are marked with an underscore: */
+@import url("./_variables.css");
+/* Feel free to add as many of these imports as you need */
+
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+
+main{
+  padding-top: 100px;
+}
+
+nav {
+  background-color: var(--color-black);
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.nav-logo{
+  width: 120px;
+  height: auto;
+}
+
+.main-nav {
+  width: 100%;
+  background-color: var(--color-black);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+.nav-container{
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.center-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.nav-left{
+  justify-self: start;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+  justify-self: end;
+}
+
+.nav-left i,
+.nav-right i {
+  font-size: 1rem;
+  max-width: 100%;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* HASHTAG */
+
+.slogan-image{
+  margin: 50px 0;
+  width: 100%;
+}
+
+.slogan-image img{
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+
+/* SIMPLE FOOTER */
+
+.simple-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* FOOTER */
+
+footer{
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 20px;
+  
+}
+
+footer h4{
+  margin: 0 0 0.5rem 0;
+}
+
+footer img{
+  width: 200px;
+  height: auto;
+}
+
+.footer-layout{
+  display:grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: stretch;
+  border-bottom: 1px solid var(--color-white);
+  padding-bottom: 1rem;
+  overflow-x: hidden;
+}
+
+.footer-layout > div{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-layout img{
+  justify-self: end;
+  align-self: center;
+}
+
+footer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.support a{
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 0.9rem;
+}
+
+.support a:hover{
+  text-decoration: underline;
+}
+
+.support li{
+  margin-bottom: 0.6rem;
+}
+
+.footer-middle {
+  display: grid;
+  grid-template-rows: auto 1fr 2fr;
+  height: 100%;
+}
+
+.social{
+  grid-row: 1;
+  margin-bottom: 3.5em;
+}
+
+.social-icons{
+  margin-top: 0.25rem;
+  gap: 1rem;
+  display: flex;
+}
+
+.social-icons i{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.newsletter{
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.newsletter label{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.newsletter input[type="text"] {
+  padding: 0.6rem;
+  width: 55%;
+  box-sizing: border-box;
+}
+
+
+.info-links {
+  margin-top: 2rem;
+}
+
+.info-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.info-links li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.info-links a {
+  color: var(--color-white);
+  font-size: 0.9rem;
+}
+
+
+

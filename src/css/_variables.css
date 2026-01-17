@@ -2,6 +2,12 @@
 /* This could be colors, fonts, or padding sizes! */
 
 :root {
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', system-ui, 'Segoe UI', sans-serif;
+  --font-heading: 'Montserrat', Arial, sans-serif;
+
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-text: #000000;
+  --color-grey: #616161;
+
 }

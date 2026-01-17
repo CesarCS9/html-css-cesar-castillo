@@ -1,0 +1,152 @@
+/* HERO SECTION */
+
+.hero {
+  display: grid;
+  grid-template-areas: "hero";
+}
+
+.hero-image {
+  grid-area: hero;
+}
+
+  .hero-content {
+  grid-area: hero;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  color: white;
+}
+
+
+.hero-title{
+  text-align: left;
+  font-size: 2rem;
+}
+
+.hero-title-strong {
+  display: block;
+  font-weight: 900;
+}
+
+.hero-title-main {
+  display: block;
+  font-weight: 100;
+}
+
+.hero-title span:last-child {
+  display: block;
+  font-weight: 400;
+}
+
+
+.hero-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-subtitle {
+  max-width: 250px;
+  font-size: 1rem;
+}
+
+.cta-home{
+  text-decoration: none;
+  color: black;
+  background-color: #ffff;
+  font-weight: 600;
+  display: inline-block;
+  padding: 20px 25px;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.cta-home:hover{
+  color: #ffff;
+  background-color: #111111;
+  border-color: black;
+}
+
+/* PRODUCTS SECTION */
+.featured-products h2{
+  text-align: center;
+  margin: 3rem;
+}
+
+.featured-products > div{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 7rem;
+  padding: 0 4rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.featured-products a{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-products img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 20px;
+}
+
+.product-price {
+  font-weight: 700;
+}
+
+
+/* MODELS SECTION */
+.models-showcase h3{
+  text-align: center;
+  margin: 3rem;
+}
+
+.models-showcase > div{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.models-showcase > div >div{
+  position: relative;
+}
+
+.models-showcase img {
+  width: 100%;
+  display: block;
+}
+
+.cta-models{
+  position: absolute;
+  width: 85%;
+  bottom: 0.5rem;
+  left: 50%;
+  text-decoration: none;
+  color: black;
+  background-color: #ffff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 50px;
+}
+
+.cta-sale{
+  color:#A90000;
+}
