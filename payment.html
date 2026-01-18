@@ -20,7 +20,7 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="coming-soon.html">
+                    <a href="coming-soon.html" aria-label="Open menu">
                         <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
                     </a>
                 </div>
@@ -28,10 +28,10 @@
                     <img src="assets/images/icons/RainyDays_Logo-WHITE.png" class="nav-logo" alt="Rainy Days logo">
                 </a>
                 <div class="nav-right">
-                    <a href="coming-soon.html">
+                    <a href="coming-soon.html" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                     </a>
-                    <a href="cart.html">
+                    <a href="cart.html" aria-label="Shopping cart">
                         <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
                     </a>
                 </div>
@@ -44,22 +44,22 @@
                 <form action="#">
                     <fieldset>
                         <legend>Contact information</legend>
-                        <input type="text" name="email" id="email" placeholder="Email*">
+                        <input type="text" name="email" id="email" placeholder="Email*" aria-label="Email address">
                     </fieldset>
 
                     <fieldset>
                         <legend>Shipping address</legend>
-                        <input type="text" name="name" id="name" placeholder="Full Name *">
-                        <input type="text" name="address" id="address" placeholder="Address *">
+                        <input type="text" name="name" id="name" placeholder="Full Name *" aria-label="Full name">
+                        <input type="text" name="address" id="address" placeholder="Address *" aria-label="Address">
                         <div class="three-columns">
-                            <input type="text" name="country" id="country" placeholder="Country *">
-                            <input type="text" name="region" id="region" placeholder="Region *">
-                            <input type="text" name="city" id="city" placeholder="City *">
+                            <input type="text" name="country" id="country" placeholder="Country *" aria-label="Country">
+                            <input type="text" name="region" id="region" placeholder="Region *" aria-label="Region">
+                            <input type="text" name="city" id="city" placeholder="City *" aria-label="City">
                         </div>
                         <div>
                             <div class="phone-code">
-                                <input type="text" name="phone" id="phone" placeholder="Phone Number *">
-                                <select name="country-code" id="country-code">
+                                <input type="text" name="phone" id="phone" placeholder="Phone Number *" aria-label="Phone number">
+                                <select name="country-code" id="country-code" aria-label="Country phone code">
                                     <option value="+47">+47 (NO)</option>
                                     <option value="+34">+34 (ES)</option>
                                     <option value="+44">+44 (UK)</option>
@@ -74,12 +74,12 @@
                         <legend>Shipping method</legend>
                         <div class="shipping-type">
                             <div class="shipping-option shipping-option-white">
-                                <input type="radio" name="shipping-method-1" id="shipping-method-1">
+                                <input type="radio" name="shipping-method-1" id="shipping-method-1" aria-label="Standard shipping">
                                 <p>Standard Shipping: Ships in 2-5 business days with free returns</p>
                                 <p>FREE!</p>
                             </div>
                             <div class="shipping-option shipping-option-white">
-                                <input type="radio" name="shipping-method-2" id="shipping-method-2">
+                                <input type="radio" name="shipping-method-2" id="shipping-method-2" aria-label="priority shipping">
                                 <p>Priority: Ships in 1-2 business days with free returns</p>
                                 <p>120 Kr</p>
                             </div>
@@ -90,21 +90,21 @@
                         <legend>Payment method</legend>
                         <div class="payment-type">
                             <div class="payment-option">
-                                <input type="radio" name="credit-card" id="credit-card">
+                                <input type="radio" name="credit-card" id="credit-card" aria-label="Pay with credit card">
                                 <p>Credit Card</p>
                                 <i class="fa-brands fa-cc-visa" style="color: #111111;"></i>
                             </div>
                             <div class="payment-option">
-                                <input type="radio" name="paypal" id="paypal">
+                                <input type="radio" name="paypal" id="paypal" aria-label="Pay with paypal">
                                 <p>PayPal</p>
                                 <i class="fa-brands fa-cc-paypal" style="color: #111111;"></i>
                             </div>
                         </div>
                         <div class="card-inputs">
-                            <input type="text" name="card-number" id="card-number" placeholder="Card Number *">
+                            <input type="text" name="card-number" id="card-number" placeholder="Card Number *" aria-label="Card number">
                             <div class="card-row">
-                                <input type="text" name="expiration-date" id="expiration-date" placeholder="Expiration Date *">
-                                <input type="text" name="cvc" id="cvc" placeholder="CVC *">
+                                <input type="text" name="expiration-date" id="expiration-date" placeholder="Expiration Date *" aria-label="Expiration date">
+                                <input type="text" name="cvc" id="cvc" placeholder="CVC *" aria-label="CVC">
                             </div>
                         </div>
                         <a href="confirmation.html" class="cta-paynow">Pay Now</a>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="promo-box">
-                    <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code" class="promo-input">
+                    <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code" class="promo-input" aria-label="Promotion code">
                 </div>
                 <div>
                     <div class="order-summary">
