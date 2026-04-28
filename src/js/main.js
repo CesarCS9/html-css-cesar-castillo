@@ -12,6 +12,10 @@ const productTitle = document.getElementById("product-title");
 const productDescription = document.getElementById("product-description");
 const productPrice = document.getElementById("product-price");
 const productGender = document.getElementById("product-gender");
+const productButton = document.getElementById("add-to-cart-detail");
+
+const cartContainer = document.getElementById("cart-container");
+
 
 // ====================================
 // API
@@ -50,7 +54,9 @@ async function fetchAndCreateProducts() {
       renderHomeProducts(featured);
     }
 
-    loader.style.display = "none";
+    if (loader) {
+      loader.style.display = "none";
+    }
 
     products.forEach((product) => {
       const card = document.createElement("a");
@@ -73,7 +79,7 @@ async function fetchAndCreateProducts() {
       price.textContent = `${product.price} kr`;
       button.textContent = "+ Add";
 
-      button.addEventListener('click', (event) => {
+      button.addEventListener("click", (event) => {
         event.preventDefault();
         addToCart(product);
       });
@@ -87,8 +93,14 @@ async function fetchAndCreateProducts() {
       productsContainer.appendChild(card);
     });
   } catch (error) {
-    loader.style.display = "none";
-    errorContainer.textContent = "Something went wrong loading products";
+    if (loader) {
+      loader.style.display = "none";
+    }
+
+    if (errorContainer) {
+      errorContainer.textContent = "Something went wrong loading products";
+    }
+
     console.error("Failed to fetch and create products", error.status);
   }
 }
@@ -112,7 +124,10 @@ async function fetchSingleProduct() {
     productPrice.textContent = `${product.price} Kr`;
     productGender.textContent = `${product.gender}`;
 
-    console.log(product);
+    productButton.addEventListener('click', () => {
+      addToCart(product);
+    });
+
   } catch (error) {
     console.error("Failed to fetch product", error);
   }
@@ -134,10 +149,86 @@ function renderHomeProducts(products) {
                     <span>${product.title}</span>
                     <span class="product-price">${product.price} Kr</span>
                 </div>
-                <button class="add-to-cart">+ Add</button>
+                <button class="add-to-cart" data-id="${product.id}">+ Add</button>
         </div>
     </a>
         `;
+  });
+
+  const homeButtons = document.querySelectorAll("#home-products .add-to-cart");
+
+  homeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const productId = button.dataset.id;
+
+      const selectedProduct = products.find((product) => product.id === productId);
+      
+      addToCart(selectedProduct);
+    });
+
+  });
+}
+
+function renderCart() {
+  const cart = getCart();
+
+  cartContainer.innerHTML = "";
+
+  cart.forEach((product) => {
+    cartContainer.innerHTML += `
+    <div class = "cart-product">
+
+     <div class="cart-product-header">
+        <p>${product.title}</p>
+        <p>${product.price} Kr</p>
+      </div>
+
+      <div class="cart-product-main">
+        <img src="${product.image.url}" alt="${product.title}">
+
+        <div class="cart-product-meta">
+          <p>${product.gender}</p>
+        </div>
+      </div>
+
+      <div class="cart-quantity">
+        <button type="button" class="remove-item" data-id="${product.id}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+
+        <span>${product.quantity}</span>
+
+        <button type="button" class="increase-quantity" data-id="${product.id}">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+    </div>
+    `;
+  });
+
+  const increaseButtons = document.querySelectorAll(".increase-quantity");
+
+  increaseButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+
+      const productId = button.dataset.id;
+
+      increaseQuantity(productId);
+    });
+  });
+
+  const decreaseButtons = document.querySelectorAll(".remove-item");
+
+  decreaseButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+
+      const productId = button.dataset.id;
+
+      decreaseQuantity(productId);
+    });
   });
 }
 
@@ -145,35 +236,92 @@ function renderHomeProducts(products) {
 // CART FUNCTIONS
 // ====================================
 
-function getCart(){
-  const cart = localStorage.getItem('cart');
+function getCart() {
+  const cart = localStorage.getItem("cart");
 
-  if(cart){
+  if (cart) {
     return JSON.parse(cart);
   }
   return [];
 }
 
-function saveCart(cart){
-  localStorage.setItem('cart', JSON.stringify(cart));
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function addToCart(product){
+function addToCart(product) {
   const cart = getCart();
 
-  cart.push(product);
+  const existingProduct = cart.find((item) => item.id === product.id);
+
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    const cartProduct = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      gender: product.gender,
+      image: product.image,
+      quantity: 1,
+    };
+
+    cart.push(cartProduct);
+  }
 
   saveCart(cart);
 
   console.log(cart);
 }
 
+function increaseQuantity(productId){
+  const cart = getCart();
+
+  const product = cart.find((item) => item.id === productId);
+
+  product.quantity +=1;
+
+  saveCart(cart);
+
+  renderCart();
+}
+
+function decreaseQuantity(productId){
+  const cart = getCart();
+
+  const product = cart.find((item) => item.id === productId);
+
+  if (product.quantity > 1) {
+
+    product.quantity -= 1;
+
+  } else {
+    const updatedCart = cart.filter((item) => item.id !== productId);
+
+    saveCart(updatedCart);
+
+    renderCart();
+
+    return;
+  }
+
+  saveCart(cart);
+
+  renderCart();
+}
+
 // ====================================
 // INIT
 // ====================================
 
-fetchAndCreateProducts();
+if (productsContainer || homeProducts) {
+  fetchAndCreateProducts();
+}
 
 if (productId) {
   fetchSingleProduct();
+}
+
+if (cartContainer) {
+  renderCart();
 }
