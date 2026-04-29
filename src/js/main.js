@@ -24,6 +24,15 @@ const paymentSummary = document.getElementById('payment-summary');
 
 const checkoutButton = document.querySelector(".checkout-btn");
 
+const paymentForm = document.querySelector('form');
+
+const confirmationOrder = document.getElementById('confirmation-order');
+const confirmationTotal = document.getElementById('confirmation-total');
+const confirmationPayment = document.getElementById('confirmation-payment');
+const confirmationTransaction = document.getElementById('confirmation-transaction');
+
+const cartCount = document.getElementById("cart-count");
+
 // ====================================
 // API
 // ====================================
@@ -379,6 +388,45 @@ function renderPaymentSummary(){
   `;
 }
 
+function renderConfirmation(){
+
+  const orderData = JSON.parse(localStorage.getItem('orderData'));
+
+  if(!orderData) return;
+
+  confirmationOrder.textContent = orderData.orderNumber;
+
+  confirmationTotal.textContent = `${orderData.total} Kr`;
+
+  confirmationPayment.textContent = orderData.paymentMethod;
+
+  confirmationTransaction.textContent = orderData.transactionNumber;
+}
+
+function renderCartBadge(){
+
+  const cart = getCart();
+
+  let totalItems = 0;
+
+  cart.forEach((product) => {
+
+    totalItems += product.quantity;
+
+  });
+
+  if(totalItems === 0){
+
+    cartCount.style.display = 'none';
+
+  } else {
+
+    cartCount.style.display = 'flex';
+
+    cartCount.textContent = totalItems;
+  }
+}
+
 // ====================================
 // CART FUNCTIONS
 // ====================================
@@ -418,6 +466,8 @@ function addToCart(product) {
 
   saveCart(cart);
 
+  renderCartBadge();
+
   console.log(cart);
 }
 
@@ -433,6 +483,8 @@ function increaseQuantity(productId) {
   renderCart();
 
   renderOrderSummary();
+
+  renderCartBadge();
 }
 
 function decreaseQuantity(productId) {
@@ -459,6 +511,57 @@ function decreaseQuantity(productId) {
   renderCart();
 
   renderOrderSummary();
+
+  renderCartBadge();
+}
+
+// ====================================
+// FORM FUNCTIONS
+// ====================================
+
+function handlePaymentSubmit(event){
+
+  event.preventDefault();
+
+  const cart= getCart();
+
+  if (cart.length === 0){
+    alert('Your cart is empty');
+    return;
+  }
+
+  const email = document.getElementById('email').value.trim();
+  const name = document.getElementById('name').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const cardNumber = document.getElementById('card-number').value.trim();
+
+  if(!email || !name || !address || !cardNumber) {
+
+    alert('Please fill in all required fields');
+
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((product) => {
+    total += product.price * product.quantity;
+  });
+
+  const orderData = {
+    orderNumber: Math.floor(Math.random() * 100000),
+    total: total.toFixed(2),
+    paymentMethod: "Visa XXXX",
+    transactionNumber: Math.floor(Math.random() * 100000000),
+  };
+
+  localStorage.setItem('orderData', JSON.stringify(orderData));
+
+  localStorage.removeItem('cart');
+
+  renderCartBadge();
+
+  window.location.href = "./confirmation.html";
 }
 
 // ====================================
@@ -499,4 +602,16 @@ if (paymentProducts) {
 
 if(paymentSummary){
   renderPaymentSummary();
+}
+
+if (paymentForm){
+  paymentForm.addEventListener('submit', handlePaymentSubmit);
+}
+
+if (confirmationOrder){
+  renderConfirmation();
+}
+
+if (cartCount) {
+  renderCartBadge();
 }

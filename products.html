@@ -30,7 +30,7 @@
         <div class="nav-container">
           <div class="nav-left">
             <a href="../coming-soon.html">
-              <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+              <i class="fa-solid fa-bars" style="color: #ffffff"></i>
             </a>
           </div>
 
@@ -44,10 +44,14 @@
 
           <div class="nav-right">
             <a href="../coming-soon.html">
-              <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #ffffff"
+              ></i>
             </a>
-            <a href="../cart.html">
-              <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+            <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
+              <i class="fa-solid fa-bag-shopping" style="color: #ffffff"></i>
+              <span id="cart-count"></span>
             </a>
           </div>
         </div>
@@ -69,50 +73,59 @@
       <div id="error" style="text-align: center; color: red"></div>
     </main>
     <footer>
-        <div class="footer-layout">
-            <div class="support">
-                <h4>Support</h4>
-                    <ul>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <li><a href="coming-soon.html">Find a store</a></li>
-                        <li><a href="coming-soon.html">Order status</a></li>
-                        <li><a href="coming-soon.html">Returns</a></li>
-                        <li><a href="coming-soon.html">Size guides</a></li>
-                        <li><a href="coming-soon.html">Promotions</a></li>
-                        <li><a href="coming-soon.html">Gift cards</a></li>
-                        <li><a href="coming-soon.html">FaQ</a></li>
-                    </ul>
+      <div class="footer-layout">
+        <div class="support">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="coming-soon.html">Contact us</a></li>
+            <li><a href="coming-soon.html">Find a store</a></li>
+            <li><a href="coming-soon.html">Order status</a></li>
+            <li><a href="coming-soon.html">Returns</a></li>
+            <li><a href="coming-soon.html">Size guides</a></li>
+            <li><a href="coming-soon.html">Promotions</a></li>
+            <li><a href="coming-soon.html">Gift cards</a></li>
+            <li><a href="coming-soon.html">FaQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-middle">
+          <div class="social">
+            <h4>Our social media</h4>
+            <div class="social-icons">
+              <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+              <i class="fa-brands fa-x-twitter" style="color: #ffffff"></i>
+              <i class="fa-brands fa-facebook-f" style="color: #ffffff"></i>
+              <i class="fa-brands fa-tiktok" style="color: #ffffff"></i>
             </div>
-                <div class="footer-middle">
-                    <div class="social">
-                        <h4>Our social media</h4>
-                        <div class="social-icons">
-                            <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-                            <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
-                            <i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
-                            <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
-                        </div>
-                    </div>
-                    <div class="newsletter">
-                        <h4>Join our email list</h4>
-                        <div>
-                            <input type="text" name="email" id="email" placeholder="Email Address*" aria-label="Email address">
-                            <label>
-                                <input type="checkbox">
-                                <span>I agree to the Privacy Policy & Terms of Use</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            <img src="assets/images/icons/RainyDays_Logo-WHITE.png" alt="Rainy Days logo">    
+          </div>
+          <div class="newsletter">
+            <h4>Join our email list</h4>
+            <div>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email Address*"
+                aria-label="Email address"
+              />
+              <label>
+                <input type="checkbox" />
+                <span>I agree to the Privacy Policy & Terms of Use</span>
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="info-links">
-            <ul>
-                <li><a href="coming-soon.html">Privacy Policy</a></li>
-                <li><a href="coming-soon.html">Terms of Use</a></li>
-                <li><a href="coming-soon.html">Cookie Preferences</a></li>
-            </ul>
-        </div>
+        <img
+          src="assets/images/icons/RainyDays_Logo-WHITE.png"
+          alt="Rainy Days logo"
+        />
+      </div>
+      <div class="info-links">
+        <ul>
+          <li><a href="coming-soon.html">Privacy Policy</a></li>
+          <li><a href="coming-soon.html">Terms of Use</a></li>
+          <li><a href="coming-soon.html">Cookie Preferences</a></li>
+        </ul>
+      </div>
     </footer>
     <script type="module" src="../src/js/main.js"></script>
   </body>
