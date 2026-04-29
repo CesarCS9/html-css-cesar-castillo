@@ -77,6 +77,25 @@
   border-color: black;
 }
 
+.add-to-cart{
+  width: 100%;
+  padding: 14px;
+  border-radius: 40px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+}
+
+.add-to-cart:hover {
+  background-color: #ffffff;
+  color: black;
+  border: 1px solid black;
+}
+
 /* Related products*/
 
 .related-products {

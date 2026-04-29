@@ -1,3 +1,5 @@
+"use strict";
+
 // ====================================
 // DOM ELEMENTS
 // ====================================
@@ -15,7 +17,12 @@ const productGender = document.getElementById("product-gender");
 const productButton = document.getElementById("add-to-cart-detail");
 
 const cartContainer = document.getElementById("cart-container");
+const orderSummary = document.getElementById("order-summary");
 
+const paymentProducts = document.getElementById('payment-products');
+const paymentSummary = document.getElementById('payment-summary');
+
+const checkoutButton = document.querySelector(".checkout-btn");
 
 // ====================================
 // API
@@ -29,8 +36,6 @@ const API_URL = "https://v2.api.noroff.dev/rainy-days";
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
-
-console.log(productId);
 
 // ====================================
 // FETCH FUNCTIONS
@@ -101,7 +106,7 @@ async function fetchAndCreateProducts() {
       errorContainer.textContent = "Something went wrong loading products";
     }
 
-    console.error("Failed to fetch and create products", error.status);
+    console.error("Failed to fetch and create products", error);
   }
 }
 
@@ -124,10 +129,9 @@ async function fetchSingleProduct() {
     productPrice.textContent = `${product.price} Kr`;
     productGender.textContent = `${product.gender}`;
 
-    productButton.addEventListener('click', () => {
+    productButton.addEventListener("click", () => {
       addToCart(product);
     });
-
   } catch (error) {
     console.error("Failed to fetch product", error);
   }
@@ -158,16 +162,17 @@ function renderHomeProducts(products) {
   const homeButtons = document.querySelectorAll("#home-products .add-to-cart");
 
   homeButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener("click", (event) => {
       event.preventDefault();
 
       const productId = button.dataset.id;
 
-      const selectedProduct = products.find((product) => product.id === productId);
-      
+      const selectedProduct = products.find(
+        (product) => product.id === productId,
+      );
+
       addToCart(selectedProduct);
     });
-
   });
 }
 
@@ -175,6 +180,27 @@ function renderCart() {
   const cart = getCart();
 
   cartContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = `
+  
+      <div class="empty-cart">
+
+        <h2>Oops! Your cart is empty.</h2>
+
+        <p>
+          Explore our products and find your next adventure jacket.
+        </p>
+
+        <a href="./products.html" class="empty-cart-btn">
+          Explore Products
+        </a>
+
+      </div>
+  
+    `;
+    return;
+  }
 
   cart.forEach((product) => {
     cartContainer.innerHTML += `
@@ -186,7 +212,10 @@ function renderCart() {
       </div>
 
       <div class="cart-product-main">
-        <img src="${product.image.url}" alt="${product.title}">
+
+        <a href="./product-details.html?id=${product.id}">
+          <img src="${product.image.url}" alt="${product.title}">
+        </a>
 
         <div class="cart-product-meta">
           <p>${product.gender}</p>
@@ -212,8 +241,7 @@ function renderCart() {
   const increaseButtons = document.querySelectorAll(".increase-quantity");
 
   increaseButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-
+    button.addEventListener("click", () => {
       const productId = button.dataset.id;
 
       increaseQuantity(productId);
@@ -223,13 +251,132 @@ function renderCart() {
   const decreaseButtons = document.querySelectorAll(".remove-item");
 
   decreaseButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-
+    button.addEventListener("click", () => {
       const productId = button.dataset.id;
 
       decreaseQuantity(productId);
     });
   });
+}
+
+function renderOrderSummary() {
+  const cart = getCart();
+
+  let totalItems = 0;
+  let subtotal = 0;
+
+  cart.forEach((product) => {
+    totalItems += product.quantity;
+
+    subtotal += product.price * product.quantity;
+  });
+
+  orderSummary.innerHTML = `
+    <h2>Order Summary</h2>
+
+    <div class="order-row">
+      <p>Subtotal (${totalItems} items)</p>
+      <p>${subtotal.toFixed(2)} Kr</p>
+    </div>
+
+    <div class="order-row">
+      <p>Estimated shipping</p>
+      <p>100 Kr</p>
+    </div>
+
+    <div class="order-row">
+      <p>Free standard shipping</p>
+      <p>-100 Kr</p>
+    </div>
+
+    <div class="order-row-total order-row">
+      <p>Total Order</p>
+      <p>${subtotal.toFixed(2)} Kr</p>
+    </div>  
+  `;
+}
+
+function renderPaymentProducts(){
+
+  const cart = getCart();
+
+  paymentProducts.innerHTML = "";
+
+  cart.forEach((product) => {
+
+    paymentProducts.innerHTML += `
+
+      <div class="cart-product cart-product-2">
+
+        <div class="cart-product-header">
+          <p>${product.title}</p>
+          <p>${product.price} Kr</p>
+        </div>
+
+        <div class="cart-product-main">
+
+          <a href="./product-details.html?id=${product.id}">
+            <img src="${product.image.url}" alt="${product.title}">
+          </a>
+
+          <div class="cart-product-meta">
+            <p>${product.gender}</p>
+            <p>Quantity: ${product.quantity}</p>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+  });
+
+  paymentProducts.innerHTML += `
+
+    <div class="edit-cart">
+      <a href="./cart.html">Edit cart</a>
+    </div>
+
+  `;
+}
+
+function renderPaymentSummary(){
+  const cart = getCart();
+
+  let totalItems = 0;
+  let subtotal = 0;
+
+  cart.forEach((product) => {
+
+    totalItems += product.quantity;
+
+    subtotal += product.price * product.quantity;
+  });
+
+  paymentSummary.innerHTML = `
+  
+    <h2>Order Summary</h2>
+
+    <div class="order-row">
+      <p>Subtotal (${totalItems} items)</p>
+      <p>${subtotal.toFixed(2)} Kr</p>
+    </div>
+
+    <div class="order-row">
+      <p>Estimated shipping</p>
+      <p>100 Kr</p>
+    </div>
+
+    <div class="order-row">
+      <p>Free standard shipping</p>
+      <p>-100 Kr</p>
+    </div>
+
+    <div class="order-row-total order-row">
+      <p>Total Order</p>
+      <p>${subtotal.toFixed(2)} Kr</p>
+    </div>
+
+  `;
 }
 
 // ====================================
@@ -274,27 +421,27 @@ function addToCart(product) {
   console.log(cart);
 }
 
-function increaseQuantity(productId){
+function increaseQuantity(productId) {
   const cart = getCart();
 
   const product = cart.find((item) => item.id === productId);
 
-  product.quantity +=1;
+  product.quantity += 1;
 
   saveCart(cart);
 
   renderCart();
+
+  renderOrderSummary();
 }
 
-function decreaseQuantity(productId){
+function decreaseQuantity(productId) {
   const cart = getCart();
 
   const product = cart.find((item) => item.id === productId);
 
   if (product.quantity > 1) {
-
     product.quantity -= 1;
-
   } else {
     const updatedCart = cart.filter((item) => item.id !== productId);
 
@@ -302,12 +449,16 @@ function decreaseQuantity(productId){
 
     renderCart();
 
+    renderOrderSummary();
+
     return;
   }
 
   saveCart(cart);
 
   renderCart();
+
+  renderOrderSummary();
 }
 
 // ====================================
@@ -324,4 +475,28 @@ if (productId) {
 
 if (cartContainer) {
   renderCart();
+
+  renderOrderSummary();
+}
+
+if(checkoutButton){
+
+  checkoutButton.addEventListener('click', (event) => {
+
+    const cart = getCart();
+
+    if (cart.length === 0){
+      event.preventDefault();
+
+      alert("Please add items to your cart before checkout.");
+    }
+  });
+}
+
+if (paymentProducts) {
+  renderPaymentProducts();
+}
+
+if(paymentSummary){
+  renderPaymentSummary();
 }

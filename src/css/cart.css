@@ -160,7 +160,8 @@
 }
 
 .paypal-btn,
-.checkout-btn {
+.checkout-btn, 
+.empty-cart-btn {
   width: 100%;
   padding: 14px;
   border-radius: 40px;
@@ -176,4 +177,14 @@
 .paypal-btn:hover,
 .checkout-btn:hover {
   background-color: #616161;
+}
+
+.empty-cart-btn:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.empty-cart p{
+  margin-bottom: 2rem;
 }

@@ -118,60 +118,12 @@
                 </form>
             </div>
             <section class="purchase-summary">
-                <div class="cart-product cart-product-2">
-                    <div class="cart-product-header">
-                        <p>Classic RD</p>
-                        <p>300 Kr</p>
-                    </div>
-
-                    <div class="cart-product-main">
-                        <img src="assets/images/products/product-1.jpg" alt="Classic RD green jacket">
-
-                        <div class="cart-product-meta">
-                            <p>Green</p>
-                            <p>M</p>
-                        </div>
-                    </div>
-                    <div class="edit-cart">
-                        <div class="cart-quantity">
-                            <button type="button" aria-label="Remove item">
-                                <i class="fa-solid fa-trash" style="color: #616161"></i>
-                            </button>
-                            <span>1</span>
-                            <button type="button" aria-label="Add item">
-                                <i class="fa-solid fa-plus" style="color: #616161"></i>
-                            </button>
-                        </div>
-                        <a href="cart.html">Edit cart</a>
-                    </div>
-                </div>
+                <div id="payment-products"></div>
                 <div class="promo-box">
                     <input type="text" name="promotion-code" id="promotion-code" placeholder="Promotion Code" class="promo-input" aria-label="Promotion code">
                 </div>
                 <div>
-                    <div class="order-summary">
-                        <h2>Order Summary</h2>
-                        <div class="order-row">
-                            <p>Subtotal (1 item)</p>
-                            <p>300 Kr</p>
-                        </div>
-                        <div class="order-row">
-                            <p>Estimated shipping</p>
-                            <p>100 Kr</p>
-                        </div>
-                        <div class="order-row">
-                            <p>Free standard shipping (over 299 Kr)</p>
-                            <p>-100 Kr</p>
-                        </div>
-                        <div class="order-row">
-                            <p>Tax</p>
-                            <p>0 Kr</p>
-                        </div>
-                        <div class="order-row-total order-row">
-                            <p>Total Order</p>
-                            <p>300 Kr</p>
-                        </div>
-                    </div>
+                    <div class="order-summary" id="payment-summary"></div>
                 </div>
             </section>
         </div>
@@ -189,7 +141,8 @@
                 <span>#Pushingtheconfortzone</span>
             </div>
         </div>
-    </footer>    
+    </footer>
+    <script type="module" src="./src/js/main.js"></script> 
 </body>
 
 </html>

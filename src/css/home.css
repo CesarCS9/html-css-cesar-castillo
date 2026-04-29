@@ -78,9 +78,15 @@
   gap: 1rem;
 }
 
-.featured-products h1{
+.featured-products{
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featured-products h1, h2{
   text-align: center;
   margin: 3rem;
+  padding: 2.5rem;
 }
 
 .featured-products > div{
@@ -153,6 +159,7 @@
 .models-showcase h3{
   text-align: center;
   margin: 3rem;
+  padding: 2.5rem;
 }
 
 .models-showcase > div{
