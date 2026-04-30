@@ -33,6 +33,9 @@ const confirmationTransaction = document.getElementById('confirmation-transactio
 
 const cartCount = document.getElementById("cart-count");
 
+const genderFilter = document.getElementById("gender-filter");
+const priceFilter = document.getElementById("price-filter");
+
 // ====================================
 // API
 // ====================================
@@ -45,6 +48,12 @@ const API_URL = "https://v2.api.noroff.dev/rainy-days";
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
+
+// ====================================
+// GLOBAL VARIABLES
+// ====================================
+
+let allProducts = [];
 
 // ====================================
 // FETCH FUNCTIONS
@@ -60,11 +69,11 @@ async function fetchAndCreateProducts() {
 
     const data = await response.json();
 
-    const products = data.data;
+    allProducts = data.data;
 
     //HOME PRODUCTS SECTION
     if (homeProducts) {
-      const featured = products.slice(0, 6);
+      const featured = allProducts.slice(0, 6);
       renderHomeProducts(featured);
     }
 
@@ -72,40 +81,9 @@ async function fetchAndCreateProducts() {
       loader.style.display = "none";
     }
 
-    products.forEach((product) => {
-      const card = document.createElement("a");
-      const image = document.createElement("img");
-      const content = document.createElement("div");
-      const title = document.createElement("p");
-      const price = document.createElement("p");
-      const button = document.createElement("button");
+    renderProducts(allProducts);
 
-      card.href = `./product-details.html?id=${product.id}`;
-
-      content.className = "product-info";
-      title.className = "card-title";
-      price.className = "product-price";
-      button.className = "add-to-cart";
-
-      image.src = product.image.url;
-      image.alt = product.image.alt;
-      title.textContent = product.title;
-      price.textContent = `${product.price} kr`;
-      button.textContent = "+ Add";
-
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
-        addToCart(product);
-      });
-
-      content.appendChild(title);
-      content.appendChild(price);
-      content.appendChild(button);
-      card.appendChild(image);
-      card.appendChild(content);
-
-      productsContainer.appendChild(card);
-    });
+    
   } catch (error) {
     if (loader) {
       loader.style.display = "none";
@@ -149,6 +127,46 @@ async function fetchSingleProduct() {
 // ====================================
 // RENDER FUNCTIONS
 // ====================================
+function renderProducts(products) {
+
+  productsContainer.innerHTML = "";
+
+  products.forEach((product) => {
+      const card = document.createElement("a");
+      const image = document.createElement("img");
+      const content = document.createElement("div");
+      const title = document.createElement("p");
+      const price = document.createElement("p");
+      const button = document.createElement("button");
+
+      card.href = `./product-details.html?id=${product.id}`;
+
+      content.className = "product-info";
+      title.className = "card-title";
+      price.className = "product-price";
+      button.className = "add-to-cart";
+
+      image.src = product.image.url;
+      image.alt = product.image.alt;
+      title.textContent = product.title;
+      price.textContent = `${product.price} kr`;
+      button.textContent = "+ Add";
+
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        addToCart(product);
+      });
+
+      content.appendChild(title);
+      content.appendChild(price);
+      content.appendChild(button);
+      card.appendChild(image);
+      card.appendChild(content);
+
+      productsContainer.appendChild(card);
+    });  
+
+}
 
 function renderHomeProducts(products) {
   homeProducts.innerHTML = "";
@@ -428,6 +446,39 @@ function renderCartBadge(){
 }
 
 // ====================================
+// FILTER FUNCTIONS
+// ====================================
+
+function applyFilters(){
+
+  let filteredProducts = [...allProducts];
+
+  const selectedGender = genderFilter.value;
+  const selectedPrice = priceFilter.value;
+
+  //FILTER BY GENDER
+
+  if (selectedGender !== 'all') {
+
+    filteredProducts = filteredProducts.filter((product) => product.gender === selectedGender);
+  }
+
+  //SORT BY PRICE
+
+  if (selectedPrice === 'low-high') {
+
+    filteredProducts.sort((a,b) => a.price - b.price);
+
+  } else if (selectedPrice === 'high-low') {
+
+    filteredProducts.sort((a,b) => b.price - a.price);
+
+  }
+
+  renderProducts(filteredProducts);
+}
+
+// ====================================
 // CART FUNCTIONS
 // ====================================
 
@@ -610,6 +661,14 @@ if (paymentForm){
 
 if (confirmationOrder){
   renderConfirmation();
+}
+
+if(genderFilter){
+  genderFilter.addEventListener('change', applyFilters);
+}
+
+if(priceFilter){
+  priceFilter.addEventListener('change', applyFilters);
 }
 
 if (cartCount) {

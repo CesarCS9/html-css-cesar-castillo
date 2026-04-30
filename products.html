@@ -16,6 +16,7 @@
     <link href="src/css/reset.css" rel="stylesheet" />
     <link href="src/css/variables.css" rel="stylesheet" />
     <link href="src/css/main.css" rel="stylesheet" />
+    <link href="src/css/products.css" rel="stylesheet">
     <link href="src/css/responsive.css" rel="stylesheet" />
     <link href="src/css/home.css" rel="stylesheet" />
 
@@ -61,8 +62,22 @@
       <section class="featured-products">
         <h1>All Products</h1>
 
+        <div class="filters">
+          <select id="gender-filter">
+            <option value="all">All Products</option>
+            <option value="Male">Men</option>
+            <option value="Female">Women</option>
+          </select>
+
+          <select id="price-filter">
+            <option value="default">Sort: Relevance</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+          </select>
+        </div>
+
         <div id="products-container">
-          <!-- JS will be here -->
+          <!-- JS goes here -->
         </div>
       </section>
 
