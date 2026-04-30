@@ -38,6 +38,8 @@ const cartCount = document.getElementById("cart-count");
 const genderFilter = document.getElementById("gender-filter");
 const priceFilter = document.getElementById("price-filter");
 
+const relatedProducts = document.getElementById("related-products");
+
 // ====================================
 // API
 // ====================================
@@ -86,7 +88,6 @@ async function fetchAndCreateProducts() {
     if (productsContainer) {
       renderProducts(allProducts);
     }
-    
   } catch (error) {
     if (loader) {
       loader.style.display = "none";
@@ -202,6 +203,57 @@ function renderHomeProducts(products) {
       addToCart(selectedProduct);
     });
   });
+}
+
+async function renderRelatedProducts() {
+  try {
+    const response = await fetch(API_URL);
+
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    const products = data.data;
+
+    const filteredProducts = products.filter(
+      (product) => product.id !== productId,
+    );
+
+    filteredProducts.sort(() => Math.random() - 0.5);
+
+    const selectedProducts = filteredProducts.slice(0, 3);
+
+    relatedProducts.innerHTML = "";
+
+    selectedProducts.forEach((product) => {
+      relatedProducts.innerHTML += `
+
+    <div class="related-card">
+
+      <a href="./product-details.html?id=${product.id}">
+
+        <img 
+          loading="lazy"
+          src="${product.image.url}" 
+          alt="${product.title}"
+        >
+
+        <div class="related-info">
+          <p>${product.title}</p>
+          <p>${product.price} Kr</p>
+        </div>
+
+      </a>
+
+    </div>
+
+  `;
+    });
+  } catch (error) {
+    console.error("Failed to render related products", error);
+  }
 }
 
 function renderCart() {
@@ -656,4 +708,8 @@ if (priceFilter) {
 
 if (cartCount) {
   renderCartBadge();
+}
+
+if (relatedProducts) {
+  renderRelatedProducts();
 }

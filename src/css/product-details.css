@@ -101,7 +101,7 @@
 .related-products {
   max-width: 1200px;
   margin: 4rem auto;
-  padding: 0 1.5rem;
+  padding: 2rem 1.5rem 0;
 }
 
 .related-products h2 {
@@ -121,9 +121,16 @@
   align-items: flex-start;
 }
 
+.related-card a {
+  text-decoration: none;
+  color: black;
+}
+
 .related-card img {
   width: 100%;
+  height: 250px;
   object-fit: cover;
+  display: block;
 }
 
 .related-info {
@@ -135,7 +142,7 @@
 
 .related-info p:first-child {
   font-weight: 500;
-  margin-bottom: 0px;
+  margin-bottom: 0.5rem;
 }
 
 .related-info p:last-child {
