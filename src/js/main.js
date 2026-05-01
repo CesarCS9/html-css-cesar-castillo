@@ -4,10 +4,17 @@
 // DOM ELEMENTS
 // ====================================
 
-const productsContainer = document.getElementById("products-container");
-const loader = document.getElementById("loader");
-const errorContainer = document.getElementById("error");
+// HOME PAGE
+
 const homeProducts = document.getElementById("home-products");
+
+// PRODUCTS PAGE
+
+const productsContainer = document.getElementById("products-container");
+const genderFilter = document.getElementById("gender-filter");
+const priceFilter = document.getElementById("price-filter");
+
+// PRODUCT DETAILS PAGE
 
 const productImage = document.getElementById("product-image");
 const productTitle = document.getElementById("product-title");
@@ -16,15 +23,21 @@ const productPrice = document.getElementById("product-price");
 const productGender = document.getElementById("product-gender");
 const productButton = document.getElementById("add-to-cart-detail");
 
+const relatedProducts = document.getElementById("related-products");
+
+// CART PAGE
+
 const cartContainer = document.getElementById("cart-container");
 const orderSummary = document.getElementById("order-summary");
+const checkoutButton = document.querySelector(".checkout-btn");
+
+// PAYMENT PAGE
 
 const paymentProducts = document.getElementById("payment-products");
 const paymentSummary = document.getElementById("payment-summary");
-
-const checkoutButton = document.querySelector(".checkout-btn");
-
 const paymentForm = document.querySelector("form");
+
+// CONFIRMATION PAGE
 
 const confirmationOrder = document.getElementById("confirmation-order");
 const confirmationTotal = document.getElementById("confirmation-total");
@@ -33,12 +46,11 @@ const confirmationTransaction = document.getElementById(
   "confirmation-transaction",
 );
 
+// GLOBAL UI ELEMENTS
+
+const loader = document.getElementById("loader");
+const errorContainer = document.getElementById("error");
 const cartCount = document.getElementById("cart-count");
-
-const genderFilter = document.getElementById("gender-filter");
-const priceFilter = document.getElementById("price-filter");
-
-const relatedProducts = document.getElementById("related-products");
 
 // ====================================
 // API
@@ -139,6 +151,9 @@ async function fetchSingleProduct() {
       addToCart(product);
     });
   } catch (error) {
+    if (errorContainer) {
+      errorContainer.textContent = "Failed to load product.";
+    }
     console.error("Failed to fetch product", error);
   }
 }
@@ -282,6 +297,9 @@ async function renderRelatedProducts() {
   `;
     });
   } catch (error) {
+    if (errorContainer) {
+      errorContainer.textContent = "Failed to load related products.";
+    }
     console.error("Failed to render related products", error);
   }
 }
