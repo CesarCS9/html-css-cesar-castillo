@@ -63,6 +63,11 @@ let allProducts = [];
 // FETCH FUNCTIONS
 // ====================================
 
+/**
+ * Fetches all products from the API
+ * and renders them on the correct page.
+ */
+
 async function fetchAndCreateProducts() {
   try {
     const response = await fetch(API_URL);
@@ -86,7 +91,13 @@ async function fetchAndCreateProducts() {
     }
 
     if (productsContainer) {
-      renderProducts(allProducts);
+      if (window.location.href.includes("mens-products.html")) {
+        applyCategoryFilter("Male");
+      } else if (window.location.href.includes("women-products.html")) {
+        applyCategoryFilter("Female");
+      } else {
+        renderProducts(allProducts);
+      }
     }
   } catch (error) {
     if (loader) {
@@ -100,6 +111,10 @@ async function fetchAndCreateProducts() {
     console.error("Failed to fetch and create products", error);
   }
 }
+
+/**
+ * Fetches a single product based on the URL id parameter.
+ */
 
 async function fetchSingleProduct() {
   try {
@@ -131,6 +146,11 @@ async function fetchSingleProduct() {
 // ====================================
 // RENDER FUNCTIONS
 // ====================================
+
+/**
+ * Renders all products dynamically into the products container.
+ */
+
 function renderProducts(products) {
   productsContainer.innerHTML = "";
 
@@ -170,6 +190,11 @@ function renderProducts(products) {
   });
 }
 
+/**
+ * Renders featured products
+ * on the homepage.
+ */
+
 function renderHomeProducts(products) {
   homeProducts.innerHTML = "";
 
@@ -204,6 +229,11 @@ function renderHomeProducts(products) {
     });
   });
 }
+
+/**
+ * Renders 3 random related products
+ * excluding the current product.
+ */
 
 async function renderRelatedProducts() {
   try {
@@ -255,6 +285,10 @@ async function renderRelatedProducts() {
     console.error("Failed to render related products", error);
   }
 }
+
+/**
+ * Renders all cart items dynamically.
+ */
 
 function renderCart() {
   const cart = getCart();
@@ -339,6 +373,11 @@ function renderCart() {
   });
 }
 
+/**
+ * Calculates and renders
+ * the cart order summary.
+ */
+
 function renderOrderSummary() {
   const cart = getCart();
 
@@ -375,6 +414,11 @@ function renderOrderSummary() {
     </div>  
   `;
 }
+
+/**
+ * Renders checkout products
+ * on the payment page.
+ */
 
 function renderPaymentProducts() {
   const cart = getCart();
@@ -417,6 +461,11 @@ function renderPaymentProducts() {
   `;
 }
 
+/**
+ * Renders the payment summary
+ * with totals and shipping.
+ */
+
 function renderPaymentSummary() {
   const cart = getCart();
 
@@ -456,6 +505,11 @@ function renderPaymentSummary() {
   `;
 }
 
+/**
+ * Displays order information
+ * on the confirmation page.
+ */
+
 function renderConfirmation() {
   const orderData = JSON.parse(localStorage.getItem("orderData"));
 
@@ -469,6 +523,11 @@ function renderConfirmation() {
 
   confirmationTransaction.textContent = orderData.transactionNumber;
 }
+
+/**
+ * Updates the cart badge
+ * with the total quantity.
+ */
 
 function renderCartBadge() {
   const cart = getCart();
@@ -491,6 +550,11 @@ function renderCartBadge() {
 // ====================================
 // FILTER FUNCTIONS
 // ====================================
+
+/**
+ * Filters products by gender
+ * and sorts them by price.
+ */
 
 function applyFilters() {
   let filteredProducts = [...allProducts];
@@ -517,9 +581,33 @@ function applyFilters() {
   renderProducts(filteredProducts);
 }
 
+/**
+ * Filters products
+ * by a specific category gender.
+ */
+
+function applyCategoryFilter(gender) {
+  let filteredProducts = allProducts.filter(
+    (product) => product.gender === gender,
+  );
+
+  const selectedPrice = priceFilter.value;
+
+  if (selectedPrice === "low-high") {
+    filteredProducts.sort((a, b) => a.price - b.price);
+  } else if (selectedPrice === "high-low") {
+    filteredProducts.sort((a, b) => b.price - a.price);
+  }
+  renderProducts(filteredProducts);
+}
+
 // ====================================
 // CART FUNCTIONS
 // ====================================
+
+/**
+ * Gets cart data from localStorage.
+ */
 
 function getCart() {
   const cart = localStorage.getItem("cart");
@@ -530,9 +618,19 @@ function getCart() {
   return [];
 }
 
+/**
+ * Saves updated cart data
+ * to localStorage.
+ */
+
 function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+/**
+ * Adds a product to the cart
+ * or increases its quantity.
+ */
 
 function addToCart(product) {
   const cart = getCart();
@@ -557,9 +655,11 @@ function addToCart(product) {
   saveCart(cart);
 
   renderCartBadge();
-
-  console.log(cart);
 }
+
+/**
+ * Increases product quantity in the cart.
+ */
 
 function increaseQuantity(productId) {
   const cart = getCart();
@@ -576,6 +676,11 @@ function increaseQuantity(productId) {
 
   renderCartBadge();
 }
+
+/**
+ * Decreases product quantity
+ * or removes it from the cart.
+ */
 
 function decreaseQuantity(productId) {
   const cart = getCart();
@@ -608,6 +713,11 @@ function decreaseQuantity(productId) {
 // ====================================
 // FORM FUNCTIONS
 // ====================================
+
+/**
+ * Validates the payment form
+ * and creates a simulated order.
+ */
 
 function handlePaymentSubmit(event) {
   event.preventDefault();
@@ -656,6 +766,11 @@ function handlePaymentSubmit(event) {
 // INIT
 // ====================================
 
+/**
+ * Initialize application features
+ * depending on the current page.
+ */
+
 if (productsContainer || homeProducts) {
   fetchAndCreateProducts();
 }
@@ -703,7 +818,15 @@ if (genderFilter) {
 }
 
 if (priceFilter) {
-  priceFilter.addEventListener("change", applyFilters);
+  priceFilter.addEventListener("change", () => {
+    if (window.location.href.includes("mens-products.html")) {
+      applyCategoryFilter("Male");
+    } else if (window.location.href.includes("women-products.html")) {
+      applyCategoryFilter("Female");
+    } else {
+      applyFilters();
+    }
+  });
 }
 
 if (cartCount) {
