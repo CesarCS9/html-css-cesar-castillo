@@ -146,6 +146,10 @@
     font-size: 1rem;
   }
 
+  .add-to-cart{
+    margin-top: 2rem;
+  }
+
   .related-products {
     margin: 2rem auto;
     padding: 0 1rem;
@@ -155,11 +159,17 @@
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1rem;
+    padding-top: 2rem;
   }
 
   .related-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .related-card{
+    align-items: center;
+    padding: 2rem 0;
   }
 
   .related-info p:first-child {
