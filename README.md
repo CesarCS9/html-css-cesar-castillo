@@ -1,127 +1,225 @@
-# Rainy Days – HTML & CSS Course Assignment
+# Rainy Days Store – JavaScript Course Assignment
 
 ## Brief
 
-This project is the final delivery for the HTML & CSS Course Assignment.  
-My goal was to build a properly functioning, responsive website based on the prototype created in Design 1, using only HTML and CSS, without any CSS frameworks or JavaScript.
+This project is the final delivery for the JavaScript Course Assignment.
 
-The site includes all required pages from the site architecture:
-- Home  
-- Product Details  
-- Cart  
-- Payment  
-- Confirmation  
-- Coming Soon  
+The goal of the assignment was to build a fully interactive e-commerce website using Vanilla JavaScript and data fetched dynamically from the Noroff Rainy Days API.
 
-All pages are responsive and adapt properly to mobile, tablet, and desktop screen sizes.
+The project expands the original HTML & CSS version of Rainy Days by adding:
 
-Some interactive functionality that would normally require JavaScript is mimicked using page navigation (for example, buttons redirecting to a “Coming Soon” page).
+* Dynamic product rendering
+* Product filtering
+* Product detail pages
+* Shopping cart functionality
+* Checkout flow
+* LocalStorage persistence
+* Dynamic order confirmation
+* API integration using async/await
 
+The application was built using only:
 
-## Live Site
+* HTML
+* CSS
+* Vanilla JavaScript
 
-website:  
- https://cesarcs9.github.io/html-css-cesar-castillo/
+No frameworks or external JavaScript libraries were used.
 
-GitHub repository:  
-https://github.com/cesarcs9/html-css-cesar-castillo
+---
 
-Prototype:
-https://www.figma.com/proto/SdYSl3CzFm0yc1jdNQyU4c/RainyDays-Prototype?node-id=0-1&t=eWKvicLWjdi5UrZc-1
+# Live Site
 
+## Website
 
-## Requirements Covered
+[https://cesarcs9.github.io/rainy-days-store-cesar-castillo/index.html](https://cesarcs9.github.io/rainy-days-store-cesar-castillo/index.html)
 
-- Semantic and clean HTML structure  
-- CSS written following the DRY principle  
-- Fully responsive layout using Flexbox and CSS Grid  
-- No CSS frameworks used  
-- WCAG accessibility considered:
-  - Alt attributes on images  
-  - Readable font sizes  
-  - Sufficient contrast  
-- Each page has:
-  - Unique : title
-  - Unique : meta name="description
-  - Unique : h1
+## GitHub Repository
 
+[https://github.com/cesarcs9/rainy-days-store-cesar-castillo](https://github.com/cesarcs9/rainy-days-store-cesar-castillo)
 
-## Technical Decisions
+## Figma Prototype
 
-- **Coming Soon page**  
-  A Coming Soon page was created to handle unfinished features such as:
-  - Hamburger menu
-  - Search
-  - Future functionality  
-  This keeps navigation logical and avoids dead links.
+[https://www.figma.com/proto/SdYSl3CzFm0yc1jdNQyU4c/RainyDays-Prototype?node-id=0-1&t=eWKvicLWjdi5UrZc-1](https://www.figma.com/proto/SdYSl3CzFm0yc1jdNQyU4c/RainyDays-Prototype?node-id=0-1&t=eWKvicLWjdi5UrZc-1)
 
-- **Buttons replaced with links**  
-  Some buttons that did not have real functionality were replaced with anchor tags pointing to the Coming Soon page.  
-  This keeps the site usable and semantically correct.
+---
 
-- **Edited images instead of complex CSS**  
-  Some images were edited beforehand (for example the hashtag image) instead of forcing heavy positioning with CSS.  
-  This improved layout stability across devices.
+# Features
 
-- **Hero section simplification on mobile**  
-  On very small screens, part of the hero text is hidden to preserve layout integrity and avoid breaking the design.
+## Product Pages
 
-- **CSS file structure**  
-  The CSS was separated into one CSS file per page and:
-  - "reset.css"
-  - "variables.css"
-  - "responsive.css"  
+* Dynamic product rendering from API
+* Single product detail pages
+* Related products section
+* Product category pages for men and women
+* Product sorting by price
 
+## Shopping Cart
 
-## Responsive Design
+* Add products to cart
+* Remove products from cart
+* Increase product quantity
+* Persistent cart using LocalStorage
+* Dynamic cart badge
 
-The site adapts to:
-- Mobile  
-- Tablet  
-- Desktop  
+## Checkout Flow
 
-Flexbox and Grid were used depending on layout needs.  
-All pages were tested using Chrome DevTools and different viewport sizes.
+* Cart summary page
+* Payment page
+* Simulated checkout process
+* Order confirmation page with generated order details
 
-## Validation
+## Additional Pages
 
-- All HTML files were validated using the W3C Markup Validator  
-- CSS structure was reviewed for consistency  
-- Horizontal scrolling was avoided  
-- Accessibility best practices were applied
+* Privacy Policy
+* Terms of Use
 
-## Deployment Notes
+---
 
-During deployment to GitHub Pages, stylesheet loading issues were encountered due to path resolution and caching.  
-After correcting their paths and removing unnecessary "@import", the issue was fully resolved.
+# Requirements Covered
 
-This helped me reinforce understanding of:
-- Asset paths in production
-- Browser caching
-- Static site deployment
+* Fetch and display products dynamically from external API
+* Dynamic product detail pages
+* Shopping cart with LocalStorage persistence
+* Add and remove products from cart
+* Order summary calculations
+* Product filtering and sorting
+* Category-specific pages
+* Loading states during API requests
+* Error handling for failed API requests
+* Responsive layout for mobile, tablet and desktop
+* Semantic HTML structure
+* Accessibility considerations
 
-## Tools & Technologies
+---
 
-- HTML5  
-- CSS3  
-- Flexbox  
-- CSS Grid  
-- Google Fonts  
-- Font Awesome  
-- GitHub  
-- GitHub Pages  
-- Chrome DevTools  
-- W3C HTML Validator  
+# Technical Decisions
 
-## Final Thoughts
+## Single JavaScript File Structure
 
-This project represents a complete responsive website closely matching the original prototype (around 95% I would say).  
-The differences are conscious design decisions made to preserve usability and layout stability, especially on smaller screens.
+The project uses one main JavaScript file divided into logical sections:
 
-I have to say that it has been a personal challenge where I clearly felt the increase in difficulty compared to previous assignments. There were many moments where I got stuck trying to solve specific problems, and interestingly, those same problems often led me to discover alternative solutions or better approaches.
+* DOM Elements
+* Fetch Functions
+* Render Functions
+* Filter Functions
+* Cart Functions
+* Form Functions
+* Init Section
 
-I learned a lot from my own mistakes, and I can already see that tasks which took me hours at the beginning would now be much faster to reproduce thanks to the practice gained during this project. The debugging process, especially with responsive design and CSS structure, helped me understand how important planning and clean architecture really are.
+This structure improved readability and made debugging easier during development.
 
-I genuinely enjoyed the whole process of bringing my Figma prototype to life and turning a static design into a functional website. Seeing the project evolve step by step was very motivating. This assignment also made me even more excited to start learning JavaScript, as it feels like the cherry on top that will allow me to add real interactivity and complete the experience to my website.
+## LocalStorage Cart System
+
+The shopping cart state is stored in LocalStorage to persist products and quantities while navigating between pages.
+
+## Category Pages
+
+Separate category pages were created for:
+
+* Men's Collection
+* Women's Collection
+
+These pages reuse the same rendering logic while applying category-specific filters.
+
+## Error Handling
+
+All fetch requests include:
+
+* Response validation
+* Try/catch blocks
+* User-facing error messages
+* Console debugging messages
+
+## Responsive Layout
+
+Flexbox and CSS Grid were used depending on layout needs.
+
+The website was tested across:
+
+* Mobile
+* Tablet
+* Desktop
+
+using Chrome DevTools.
+
+---
+
+# Accessibility
+
+The project includes several accessibility considerations:
+
+* Semantic HTML
+* Alt text for images
+* Readable font sizes
+* Keyboard accessible forms and buttons
+* Sufficient color contrast
+* Proper heading hierarchy
+
+---
+
+# Validation & Testing
+
+The project was tested using:
+
+* Chrome DevTools
+* W3C HTML Validator
+* Manual responsive testing
+* Console error testing
+* GitHub Pages deployment testing
+
+The final version:
+
+* Has no known console errors
+* Avoids horizontal scrolling
+* Maintains responsive layouts across devices
+
+---
+
+# Tools & Technologies
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+* Flexbox
+* CSS Grid
+* LocalStorage API
+* Fetch API
+* Google Fonts
+* Font Awesome
+* GitHub
+* GitHub Pages
+* Chrome DevTools
+* Figma
+
+---
+
+# API
+
+Data is fetched from the Noroff Rainy Days API:
+
+[https://v2.api.noroff.dev/rainy-days](https://v2.api.noroff.dev/rainy-days)
+
+API documentation:
+
+[https://docs.noroff.dev/docs/v2/e-commerce/rainy-days](https://docs.noroff.dev/docs/v2/e-commerce/rainy-days)
+
+---
+
+# AI Usage
+
+Artificial Intelligence tools were used as learning support during development.
+
+AI assistance included:
+
+* Debugging help
+* JavaScript explanations
+* Project structure guidance
+* Documentation writing support
+* README formatting support
+
+All code was reviewed, understood and manually integrated into the final project.
+
+A dedicated AI_LOG.md file is included in the repository.
+
 
 
